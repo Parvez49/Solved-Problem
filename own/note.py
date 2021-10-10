@@ -1,7 +1,9 @@
 
-
-print("ph")
-
-x=3.23e+4
-
+l=list()
+def rec(a,s,n):
+    l.append(s)
+    for i in a:
+        if s!=i:
+            l.append(i)
+        if
 
