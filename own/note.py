@@ -16,6 +16,16 @@ for i in range(int(input())):
 5 0 0 0 10
 8 9 10 11 12
 
+for p in range(int(input())):
+    n,m,k=map(int,input().split())
+    if n==1 and k==2 and m==0:
+        print('YES')
+    elif m<n-1 or k<3 or m>n*(n-1)/2:
+        print('NO')
+    elif  k==3 and m<n*(n-1)/2:
+        print('NO')
+    else:
+        print('YES')
 
 """
 n=1111
@@ -53,4 +63,34 @@ a
 a
 b
 """
+
+n=int(input())
+
+set1=set()
+set2=set()
+sel=0
+for i in range(n-1):
+    u,v=map(int,input().split())
+    if u not in set1 and u not in set2 and v not in set1 and v not in set2:
+        set1.add(u)
+        set2.add(v)
+    elif (u in set1 and v in set1) or (u in set2 and v in set2):
+        sel+=1
+    else:
+        if u in set1:
+            set2.add(v)
+        elif u in set2:
+            set1.add(v)
+        if v in set1:
+            set2.add(u)
+        elif v in set2:
+            set1.add(u)
+
+
+    #print(set1)
+    #print(set2)
+#l1=len(set1)
+#l2=len(set2)
+print((n*n)//4-(n-1)-sel)
+#print(l1*l2-(n-1))
 
